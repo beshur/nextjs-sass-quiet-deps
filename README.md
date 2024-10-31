@@ -1,3 +1,19 @@
+## Sass quiet-deps issue
+
+Including `quietDeps` in `sassOptions` in next.config does not silence the dependencies warnings:
+
+```
+  sassOptions: {
+    quietDeps: true, // for now we use @import for compatibility with nuxt2
+    prependData: `@import "/public/lib.scss";`,
+  },
+```
+
+Workaround is to also explicitly add `silenceDeprecations: ['legacy-js-api']`
+
+-----
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
